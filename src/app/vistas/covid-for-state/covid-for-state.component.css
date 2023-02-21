@@ -1,0 +1,73 @@
+.table-container {
+  overflow-x: auto;
+  max-width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  margin-top: 100px;
+
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #3b70a170;
+  color: rgb(255, 255, 255);
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 90%;
+}
+
+.scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.edit-btn {
+  background-color: #349752be;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #dc3546a2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-container {
+  white-space: nowrap;
+}
+
+.btn-container button {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+

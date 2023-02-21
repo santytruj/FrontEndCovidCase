@@ -1,0 +1,392 @@
+<app-headers></app-headers>
+
+<div class="container-fluid table-container">
+  <div class="row justify-content-between mb-2">
+    <div class="col-md-auto">
+      <h1>Lista de Casos Covid-19 Por Estado</h1>
+    </div>
+    <div class="col-md-auto">
+      <button class="btn btn-primary" (click)="onNewModal()">Nuevo Registro</button>
+    </div>
+  </div>
+<div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Acciones</th>
+        <th>Id</th>
+        <th>Date </th>
+        <th>State </th>
+        <th>Positive </th>
+        <th>Probable Cases </th>
+        <th>Negative </th>
+        <th>Pending </th>
+        <th>Total Test Results Source </th>
+        <th>Total Test Results </th>
+        <th>Hospitalized Currently </th>
+        <th>Hospitalized Cumulative </th>
+        <th>In Icu Currently </th>
+        <th>In Icu Cumulative </th>
+        <th>On Ventilator Currently </th>
+        <th>On Ventilator Cumulative </th>
+        <th>Recovered </th>
+        <th>Last UpdateEt </th>
+        <th>Date Modified </th>
+        <th>Check TimeEt </th>
+        <th>Death </th>
+        <th>Hospitalized </th>
+        <th>Hospitalized Discharged </th>
+        <th>Date Checked </th>
+        <th>Total Tests Viral </th>
+        <th>Positive Tests Viral </th>
+        <th>Negative Tests Viral </th>
+        <th>Positive Cases Viral </th>
+        <th>Death Confirmed </th>
+        <th>Death Probable </th>
+        <th>Total Test Encounters Viral </th>
+        <th>Total Tests People Viral </th>
+        <th>Total Tests Antibody </th>
+        <th>Positive Tests Antibody </th>
+        <th>Negative Tests Antibody </th>
+        <th>Total Tests People Antibody </th>
+        <th>Positive Tests People Antibody </th>
+        <th>Negative Tests People Antibody </th>
+        <th>Total Tests People Antigen </th>
+        <th>Positive Tests People Antigen </th>
+        <th>Total Tests Antigen </th>
+        <th>Positive Tests Antigen </th>
+        <th>Fips </th>
+        <th>Positive Increase </th>
+        <th>Negative Increase </th>
+        <th>Total </th>
+        <th>Total Test Results Increase </th>
+        <th>Pos Neg </th>
+        <th>Data Quality Grade </th>
+        <th>Death Increase </th>
+        <th>Hospitalized Increase </th>
+        <th>Hash </th>
+        <th>Commercial Score </th>
+        <th>Negative RegularScore </th>
+        <th>Negative Score </th>
+        <th>Positive Score </th>
+        <th>Score </th>
+        <th>Grade </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of dataRows; let i = index">
+        <td class="btn-container">
+           <button class="btn btn-info btn-sm mr-1 edit-btn" (click)="onEdit(i)">Editar</button>
+          <button class="btn btn-danger btn-sm delete-btn" (click)="onDelete(i)">Eliminar</button>
+        </td>
+        <td>{{ data.id}}</td>
+        <td>{{ data.date }}</td>
+        <td>{{ data.state }}</td>
+        <td>{{ data.positive }}</td>
+        <td>{{ data.probableCases }}</td>
+        <td>{{ data.negative }}</td>
+        <td>{{ data.pending }}</td>
+        <td>{{ data.totalTestResultsSource }}</td>
+        <td>{{ data.totalTestResults }}</td>
+        <td>{{ data.hospitalizedCurrently }}</td>
+        <td>{{ data.hospitalizedCumulative }}</td>
+        <td>{{ data.inIcuCurrently }}</td>
+        <td>{{ data.inIcuCumulative }}</td>
+        <td>{{ data.onVentilatorCurrently }}</td>
+        <td>{{ data.onVentilatorCumulative }}</td>
+        <td>{{ data.recovered }}</td>
+        <td>{{ data.lastUpdateEt }}</td>
+        <td>{{ data.dateModified }}</td>
+        <td>{{ data.checkTimeEt }}</td>
+        <td>{{ data.death }}</td>
+        <td>{{ data.hospitalized }}</td>
+        <td>{{ data.hospitalizedDischarged }}</td>
+        <td>{{ data.dateChecked }}</td>
+        <td>{{ data.totalTestsViral }}</td>
+        <td>{{ data.positiveTestsViral }}</td>
+        <td>{{ data.negativeTestsViral }}</td>
+        <td>{{ data.positiveCasesViral }}</td>
+        <td>{{ data.deathConfirmed }}</td>
+        <td>{{ data.deathProbable }}</td>
+        <td>{{ data.totalTestEncountersViral }}</td>
+        <td>{{ data.totalTestsPeopleViral }}</td>
+        <td>{{ data.totalTestsAntibody }}</td>
+        <td>{{ data.positiveTestsAntibody }}</td>
+        <td>{{ data.negativeTestsAntibody }}</td>
+        <td>{{ data.totalTestsPeopleAntibody }}</td>
+        <td>{{ data.positiveTestsPeopleAntibody }}</td>
+        <td>{{ data.negativeTestsPeopleAntibody }}</td>
+        <td>{{ data.totalTestsPeopleAntigen }}</td>
+        <td>{{ data.positiveTestsPeopleAntigen }}</td>
+        <td>{{ data.totalTestsAntigen }}</td>
+        <td>{{ data.positiveTestsAntigen }}</td>
+        <td>{{ data.fips }}</td>
+        <td>{{ data.positiveIncrease }}</td>
+        <td>{{ data.negativeIncrease }}</td>
+        <td>{{ data.total }}</td>
+        <td>{{ data.totalTestResultsIncrease }}</td>
+        <td>{{ data.posNeg }}</td>
+        <td>{{ data.dataQualityGrade }}</td>
+        <td>{{ data.deathIncrease }}</td>
+        <td>{{ data.hospitalizedIncrease }}</td>
+        <td>{{ data.hash }}</td>
+        <td>{{ data.commercialScore }}</td>
+        <td>{{ data.negativeRegularScore }}</td>
+        <td>{{ data.negativeScore }}</td>
+        <td>{{ data.positiveScore }}</td>
+        <td>{{ data.score }}</td>
+        <td>{{ data.grade }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'d-block': selectedRowIndex !== null}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar elemento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSave()">
+          <div class="form-group">
+            <label for="date">date:</label>
+            <input type="number" class="form-control" id="date" name="date" [value]="selectedRowData ? selectedRowData.date : ''" (input)="updateSelectedRowDate('date',$event)">
+          </div>
+          <div class="form-group">
+            <label for="state">state:</label>
+            <input type="text" class="form-control" id="state" name="state" [value]="selectedRowData ? selectedRowData.state : ''" (input)="updateSelectedRowDate('state',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positive">positive:</label>
+            <input type="number" class="form-control" id="positive" name="positive" [value]="selectedRowData ? selectedRowData.positive : ''" (input)="updateSelectedRowDate('positive',$event)">
+          </div>
+          <div class="form-group">
+            <label for="probableCases">probableCases:</label>
+            <input type="number" class="form-control" id="probableCases" name="probableCases" [value]="selectedRowData ? selectedRowData.probableCases : ''" (input)="updateSelectedRowDate('probableCases',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negative">negative:</label>
+            <input type="number" class="form-control" id="negative" name="negative" [value]="selectedRowData ? selectedRowData.negative : ''" (input)="updateSelectedRowDate('negative',$event)">
+          </div>
+          <div class="form-group">
+            <label for="pending">pending:</label>
+            <input type="text" class="form-control" id="pending" name="pending" [value]="selectedRowData ? selectedRowData.pending : ''" (input)="updateSelectedRowDate('pending',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestResultsSource">totalTestResultsSource:</label>
+            <input type="text" class="form-control" id="totalTestResultsSource" name="totalTestResultsSource" [value]="selectedRowData ? selectedRowData.totalTestResultsSource : ''" (input)="updateSelectedRowDate('totalTestResultsSource',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestResults">totalTestResults:</label>
+            <input type="number" class="form-control" id="totalTestResults" name="totalTestResults" [value]="selectedRowData ? selectedRowData.totalTestResults : ''" (input)="updateSelectedRowDate('totalTestResults',$event)">
+          </div>
+          <div class="form-group">
+            <label for="hospitalizedCurrently">hospitalizedCurrently:</label>
+            <input type="number" class="form-control" id="hospitalizedCurrently" name="hospitalizedCurrently" [value]="selectedRowData ? selectedRowData.hospitalizedCurrently : ''" (input)="updateSelectedRowDate('hospitalizedCurrently',$event)">
+          </div>
+          <div class="form-group">
+            <label for="hospitalizedCumulative">hospitalizedCumulative:</label>
+            <input type="number" class="form-control" id="hospitalizedCumulative" name="hospitalizedCumulative" [value]="selectedRowData ? selectedRowData.hospitalizedCumulative : ''" (input)="updateSelectedRowDate('hospitalizedCumulative',$event)">
+          </div>
+          <div class="form-group">
+            <label for="inIcuCurrently">inIcuCurrently:</label>
+            <input type="number" class="form-control" id="inIcuCurrently" name="inIcuCurrently" [value]="selectedRowData ? selectedRowData.inIcuCurrently : ''" (input)="updateSelectedRowDate('inIcuCurrently',$event)">
+          </div>
+          <div class="form-group">
+            <label for="inIcuCumulative">inIcuCumulative:</label>
+            <input type="number" class="form-control" id="inIcuCumulative" name="inIcuCumulative" [value]="selectedRowData ? selectedRowData.inIcuCumulative : ''" (input)="updateSelectedRowDate('inIcuCumulative',$event)">
+          </div>
+          <div class="form-group">
+            <label for="onVentilatorCurrently">onVentilatorCurrently:</label>
+            <input type="number" class="form-control" id="onVentilatorCurrently" name="onVentilatorCurrently" [value]="selectedRowData ? selectedRowData.onVentilatorCurrently : ''" (input)="updateSelectedRowDate('onVentilatorCurrently',$event)">
+          </div>
+          <div class="form-group">
+            <label for="onVentilatorCumulative">onVentilatorCumulative:</label>
+            <input type="number" class="form-control" id="onVentilatorCumulative" name="onVentilatorCumulative" [value]="selectedRowData ? selectedRowData.onVentilatorCumulative : ''" (input)="updateSelectedRowDate('onVentilatorCumulative',$event)">
+          </div>
+          <div class="form-group">
+            <label for="recovered">recovered:</label>
+            <input type="number" class="form-control" id="recovered" name="recovered" [value]="selectedRowData ? selectedRowData.recovered : ''" (input)="updateSelectedRowDate('recovered',$event)">
+          </div>
+          <div class="form-group">
+            <label for="lastUpdateEt">lastUpdateEt:</label>
+            <input type="text" class="form-control" id="lastUpdateEt" name="lastUpdateEt" [value]="selectedRowData ? selectedRowData.lastUpdateEt : ''" (input)="updateSelectedRowDate('lastUpdateEt',$event)">
+          </div>
+          <div class="form-group">
+            <label for="dateModified">dateModified:</label>
+            <input type="datetime-local" class="form-control" id="dateModified" name="dateModified" [value]="selectedRowData ? selectedRowData.dateModified : ''" (input)="updateSelectedRowDate('dateModified',$event)">
+          </div>
+          <div class="form-group">
+            <label for="checkTimeEt">checkTimeEt:</label>
+            <input type="text" class="form-control" id="checkTimeEt" name="checkTimeEt" [value]="selectedRowData ? selectedRowData.checkTimeEt : ''" (input)="updateSelectedRowDate('checkTimeEt',$event)">
+          </div>
+          <div class="form-group">
+            <label for="death">death:</label>
+            <input type="number" class="form-control" id="death" name="death" [value]="selectedRowData ? selectedRowData.death : ''" (input)="updateSelectedRowDate('death',$event)">
+          </div>
+          <div class="form-group">
+            <label for="hospitalized">hospitalized:</label>
+            <input type="number" class="form-control" id="hospitalized" name="hospitalized" [value]="selectedRowData ? selectedRowData.hospitalized : ''" (input)="updateSelectedRowDate('hospitalized',$event)">
+          </div>
+          <div class="form-group">
+            <label for="hospitalizedDischarged">hospitalizedDischarged:</label>
+            <input type="number" class="form-control" id="hospitalizedDischarged" name="hospitalizedDischarged" [value]="selectedRowData ? selectedRowData.hospitalizedDischarged : ''" (input)="updateSelectedRowDate('hospitalizedDischarged',$event)">
+          </div>
+          <div class="form-group">
+            <label for="dateChecked">dateChecked:</label>
+            <input type="datetime-local" class="form-control" id="dateChecked" name="dateChecked" [value]="selectedRowData ? selectedRowData.dateChecked : ''" (input)="updateSelectedRowDate('dateChecked',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestsViral">totalTestsViral:</label>
+            <input type="number" class="form-control" id="totalTestsViral" name="totalTestsViral" [value]="selectedRowData ? selectedRowData.totalTestsViral : ''" (input)="updateSelectedRowDate('totalTestsViral',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveTestsViral">positiveTestsViral:</label>
+            <input type="number" class="form-control" id="positiveTestsViral" name="positiveTestsViral" [value]="selectedRowData ? selectedRowData.positiveTestsViral : ''" (input)="updateSelectedRowDate('positiveTestsViral',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negativeTestsViral">negativeTestsViral:</label>
+            <input type="number" class="form-control" id="negativeTestsViral" name="negativeTestsViral" [value]="selectedRowData ? selectedRowData.negativeTestsViral : ''" (input)="updateSelectedRowDate('negativeTestsViral',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveCasesViral">positiveCasesViral:</label>
+            <input type="number" class="form-control" id="positiveCasesViral" name="positiveCasesViral" [value]="selectedRowData ? selectedRowData.positiveCasesViral : ''" (input)="updateSelectedRowDate('positiveCasesViral',$event)">
+          </div>
+          <div class="form-group">
+            <label for="deathConfirmed">deathConfirmed:</label>
+            <input type="number" class="form-control" id="deathConfirmed" name="deathConfirmed" [value]="selectedRowData ? selectedRowData.deathConfirmed : ''" (input)="updateSelectedRowDate('deathConfirmed',$event)">
+          </div>
+          <div class="form-group">
+            <label for="deathProbable">deathProbable:</label>
+            <input type="number" class="form-control" id="deathProbable" name="deathProbable" [value]="selectedRowData ? selectedRowData.deathProbable : ''" (input)="updateSelectedRowDate('deathProbable',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestEncountersViral">totalTestEncountersViral:</label>
+            <input type="number" class="form-control" id="totalTestEncountersViral" name="totalTestEncountersViral" [value]="selectedRowData ? selectedRowData.totalTestEncountersViral : ''" (input)="updateSelectedRowDate('totalTestEncountersViral',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestsPeopleViral">totalTestsPeopleViral:</label>
+            <input type="number" class="form-control" id="totalTestsPeopleViral" name="totalTestsPeopleViral" [value]="selectedRowData ? selectedRowData.totalTestsPeopleViral : ''" (input)="updateSelectedRowDate('totalTestsPeopleViral',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestsAntibody">totalTestsAntibody:</label>
+            <input type="number" class="form-control" id="totalTestsAntibody" name="totalTestsAntibody" [value]="selectedRowData ? selectedRowData.totalTestsAntibody : ''" (input)="updateSelectedRowDate('totalTestsAntibody',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveTestsAntibody">positiveTestsAntibody:</label>
+            <input type="number" class="form-control" id="positiveTestsAntibody" name="positiveTestsAntibody" [value]="selectedRowData ? selectedRowData.positiveTestsAntibody : ''" (input)="updateSelectedRowDate('positiveTestsAntibody',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negativeTestsAntibody">negativeTestsAntibody:</label>
+            <input type="number" class="form-control" id="negativeTestsAntibody" name="negativeTestsAntibody" [value]="selectedRowData ? selectedRowData.negativeTestsAntibody : ''" (input)="updateSelectedRowDate('negativeTestsAntibody',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestsPeopleAntibody">totalTestsPeopleAntibody:</label>
+            <input type="number" class="form-control" id="totalTestsPeopleAntibody" name="totalTestsPeopleAntibody" [value]="selectedRowData ? selectedRowData.totalTestsPeopleAntibody : ''" (input)="updateSelectedRowDate('totalTestsPeopleAntibody',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveTestsPeopleAntibody">positiveTestsPeopleAntibody:</label>
+            <input type="text" class="form-control" id="positiveTestsPeopleAntibody" name="positiveTestsPeopleAntibody" [value]="selectedRowData ? selectedRowData.positiveTestsPeopleAntibody : ''" (input)="updateSelectedRowDate('positiveTestsPeopleAntibody',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negativeTestsPeopleAntibody">negativeTestsPeopleAntibody:</label>
+            <input type="text" class="form-control" id="negativeTestsPeopleAntibody" name="negativeTestsPeopleAntibody" [value]="selectedRowData ? selectedRowData.negativeTestsPeopleAntibody : ''" (input)="updateSelectedRowDate('negativeTestsPeopleAntibody',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestsPeopleAntigen">totalTestsPeopleAntigen:</label>
+            <input type="number" class="form-control" id="totalTestsPeopleAntigen" name="totalTestsPeopleAntigen" [value]="selectedRowData ? selectedRowData.totalTestsPeopleAntigen : ''" (input)="updateSelectedRowDate('totalTestsPeopleAntigen',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveTestsPeopleAntigen">positiveTestsPeopleAntigen:</label>
+            <input type="number" class="form-control" id="positiveTestsPeopleAntigen" name="positiveTestsPeopleAntigen" [value]="selectedRowData ? selectedRowData.positiveTestsPeopleAntigen : ''" (input)="updateSelectedRowDate('positiveTestsPeopleAntigen',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestsAntigen">totalTestsAntigen:</label>
+            <input type="text" class="form-control" id="totalTestsAntigen" name="totalTestsAntigen" [value]="selectedRowData ? selectedRowData.totalTestsAntigen : ''" (input)="updateSelectedRowDate('totalTestsAntigen',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveTestsAntigen">positiveTestsAntigen:</label>
+            <input type="text" class="form-control" id="positiveTestsAntigen" name="positiveTestsAntigen" [value]="selectedRowData ? selectedRowData.positiveTestsAntigen : ''" (input)="updateSelectedRowDate('positiveTestsAntigen',$event)">
+          </div>
+          <div class="form-group">
+            <label for="fips">fips:</label>
+            <input type="text" class="form-control" id="fips" name="fips" [value]="selectedRowData ? selectedRowData.fips : ''" (input)="updateSelectedRowDate('fips',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveIncrease">positiveIncrease:</label>
+            <input type="number" class="form-control" id="positiveIncrease" name="positiveIncrease" [value]="selectedRowData ? selectedRowData.positiveIncrease : ''" (input)="updateSelectedRowDate('positiveIncrease',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negativeIncrease">negativeIncrease:</label>
+            <input type="number" class="form-control" id="negativeIncrease" name="negativeIncrease" [value]="selectedRowData ? selectedRowData.negativeIncrease : ''" (input)="updateSelectedRowDate('negativeIncrease',$event)">
+          </div>
+          <div class="form-group">
+            <label for="total">total:</label>
+            <input type="number" class="form-control" id="total" name="total" [value]="selectedRowData ? selectedRowData.total : ''" (input)="updateSelectedRowDate('total',$event)">
+          </div>
+          <div class="form-group">
+            <label for="totalTestResultsIncrease">totalTestResultsIncrease:</label>
+            <input type="number" class="form-control" id="totalTestResultsIncrease" name="totalTestResultsIncrease" [value]="selectedRowData ? selectedRowData.totalTestResultsIncrease : ''" (input)="updateSelectedRowDate('totalTestResultsIncrease',$event)">
+          </div>
+          <div class="form-group">
+            <label for="posNeg">posNeg:</label>
+            <input type="number" class="form-control" id="posNeg" name="posNeg" [value]="selectedRowData ? selectedRowData.posNeg : ''" (input)="updateSelectedRowDate('posNeg',$event)">
+          </div>
+          <div class="form-group">
+            <label for="dataQualityGrade">dataQualityGrade:</label>
+            <input type="text" class="form-control" id="dataQualityGrade" name="dataQualityGrade" [value]="selectedRowData ? selectedRowData.dataQualityGrade : ''" (input)="updateSelectedRowDate('dataQualityGrade',$event)">
+          </div>
+          <div class="form-group">
+            <label for="deathIncrease">deathIncrease:</label>
+            <input type="number" class="form-control" id="deathIncrease" name="deathIncrease" [value]="selectedRowData ? selectedRowData.deathIncrease : ''" (input)="updateSelectedRowDate('deathIncrease',$event)">
+          </div>
+          <div class="form-group">
+            <label for="hospitalizedIncrease">hospitalizedIncrease:</label>
+            <input type="number" class="form-control" id="hospitalizedIncrease" name="hospitalizedIncrease" [value]="selectedRowData ? selectedRowData.hospitalizedIncrease : ''" (input)="updateSelectedRowDate('hospitalizedIncrease',$event)">
+          </div>
+          <div class="form-group">
+            <label for="hash">hash:</label>
+            <input type="text" class="form-control" id="hash" name="hash" [value]="selectedRowData ? selectedRowData.hash : ''" (input)="updateSelectedRowDate('hash',$event)">
+          </div>
+          <div class="form-group">
+            <label for="commercialScore">commercialScore:</label>
+            <input type="number" class="form-control" id="commercialScore" name="commercialScore" [value]="selectedRowData ? selectedRowData.commercialScore : ''" (input)="updateSelectedRowDate('commercialScore',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negativeRegularScore">negativeRegularScore:</label>
+            <input type="number" class="form-control" id="negativeRegularScore" name="negativeRegularScore" [value]="selectedRowData ? selectedRowData.negativeRegularScore : ''" (input)="updateSelectedRowDate('negativeRegularScore',$event)">
+          </div>
+          <div class="form-group">
+            <label for="negativeScore">negativeScore:</label>
+            <input type="number" class="form-control" id="negativeScore" name="negativeScore" [value]="selectedRowData ? selectedRowData.negativeScore : ''" (input)="updateSelectedRowDate('negativeScore',$event)">
+          </div>
+          <div class="form-group">
+            <label for="positiveScore">positiveScore:</label>
+            <input type="number" class="form-control" id="positiveScore" name="positiveScore" [value]="selectedRowData ? selectedRowData.positiveScore : ''" (input)="updateSelectedRowDate('positiveScore',$event)">
+          </div>
+          <div class="form-group">
+            <label for="score">score:</label>
+            <input type="number" class="form-control" id="score" name="score" [value]="selectedRowData ? selectedRowData.score : ''" (input)="updateSelectedRowDate('score',$event)">
+          </div>
+          <div class="form-group">
+            <label for="grade">grade:</label>
+            <input type="text" class="form-control" id="grade" name="grade" [value]="selectedRowData ? selectedRowData.grade : ''" (input)="updateSelectedRowDate('grade',$event)">
+          </div>
+
+        </form>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="onCloseModal()">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
